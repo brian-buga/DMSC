@@ -40,13 +40,16 @@
         <script src="~/lib/jquery/dist/jquery.js"></script>
         <script src="~/lib/jquery/dist/jquery-ui.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
-        <script src="~/lib/jquery-easing/jquery.easing.js"></script>
-        @*<script src="~/lib/chart.js/chart.js"></script>
-        <script src="~/backoffice/js/chart-area-demo.js"></script>*@      
+
+        <script src="~/lib/chart/chart.js"></script>
+        <script src="~/lib/chart/chart-area-demo.js"></script>
+
         <script src="~/js/custom.js" type="text/javascript"></script>
         <script src="~/js/site.js" type="text/javascript"></script>
+
     </environment>
-     
+
+    @RenderSection("scripts", required: false)
 </body>
 
 </html>

@@ -49,6 +49,7 @@
             service.AddTransient<IUserRepository, UserRepository>();
             service.AddTransient<IArticleRepository, ArticleRepository>();
             service.AddTransient<ILikeRepository, LikeRepository>();
+            service.AddTransient<IChartRepository, ChartRepository>();
 
             service.AddTransient<IRouteProvider, RouteProvider>();
 

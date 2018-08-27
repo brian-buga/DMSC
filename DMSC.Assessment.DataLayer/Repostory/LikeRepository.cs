@@ -18,8 +18,8 @@
         {
             EntityEntry dbEntityEntry = _context.Entry<Like>(entity);
             _context.Set<Like>().Add(entity);
-        }
-        
+        }      
+
         public void SaveChanges()
         {
             _context.SaveChanges();

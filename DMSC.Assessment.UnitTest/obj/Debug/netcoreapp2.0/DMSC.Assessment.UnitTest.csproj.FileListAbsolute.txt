@@ -12,3 +12,8 @@ C:\Users\Bella\source\repos\Dmsc.Assessment\DMSC.Assessment.UnitTest\obj\Debug\n
 C:\Users\Bella\source\repos\Dmsc.Assessment\DMSC.Assessment.UnitTest\obj\Debug\netcoreapp2.0\DMSC.Assessment.UnitTest.AssemblyInfo.cs
 C:\Users\Bella\source\repos\Dmsc.Assessment\DMSC.Assessment.UnitTest\obj\Debug\netcoreapp2.0\DMSC.Assessment.UnitTest.dll
 C:\Users\Bella\source\repos\Dmsc.Assessment\DMSC.Assessment.UnitTest\obj\Debug\netcoreapp2.0\DMSC.Assessment.UnitTest.pdb
+C:\Users\Bella\source\repos\Dmsc.Assessment\DMSC.Assessment.UnitTest\bin\Debug\netcoreapp2.0\DMSC.Assessment.Data.dll
+C:\Users\Bella\source\repos\Dmsc.Assessment\DMSC.Assessment.UnitTest\bin\Debug\netcoreapp2.0\DMSC.Assessment.Web.dll
+C:\Users\Bella\source\repos\Dmsc.Assessment\DMSC.Assessment.UnitTest\bin\Debug\netcoreapp2.0\DMSC.Assessment.Data.pdb
+C:\Users\Bella\source\repos\Dmsc.Assessment\DMSC.Assessment.UnitTest\bin\Debug\netcoreapp2.0\DMSC.Assessment.Web.pdb
+C:\Users\Bella\source\repos\Dmsc.Assessment\DMSC.Assessment.UnitTest\obj\Debug\netcoreapp2.0\DMSC.Assessment.UnitTest.csproj.CopyComplete

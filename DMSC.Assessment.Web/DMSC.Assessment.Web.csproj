@@ -24,7 +24,6 @@
 
   <ItemGroup>
     <Folder Include="Areas\Backoffice\Data\" />
-    <Folder Include="Areas\Backoffice\Views\User\" />
   </ItemGroup>
 
 </Project>

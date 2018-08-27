@@ -7,6 +7,8 @@
 
     using DMSC.Assessment.Extensions;
     using DMSC.Assessment.Web.Infrastrusture;
+    using Microsoft.Extensions.FileProviders;
+    using System.IO;
 
     public class Startup
     {
@@ -28,8 +30,12 @@
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
-        {
-            app.UseStaticFiles();
+        {            
+            app.UseStaticFiles(new StaticFileOptions()
+            {
+                FileProvider = new PhysicalFileProvider(
+                    Path.Combine(Directory.GetCurrentDirectory(), @"wwwroot"))
+            });
 
             app.AddDevMiddlewares();
 
