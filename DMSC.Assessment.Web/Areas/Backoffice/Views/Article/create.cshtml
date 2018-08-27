@@ -1,0 +1,24 @@
+﻿@model DMSC.Assessment.Backoffice.Models.ArticleModel
+
+@{
+    ViewData["Title"] = "CREATE ARTICLE";
+}
+
+<div class="container-fluid">
+
+    <div class="row mb-2">
+        <div class="col-lg-9">
+            <h4> Create Article</h4>
+        </div>
+        <div class="col-lg-3">
+            <a href="@Url.Action("index","article")" class="btn btn-info float-r" role="button">Back</a>
+        </div>
+    </div>
+
+    <form action="@Url.Action("create","article")" method="post">
+        @Html.Partial("_form", Model)
+    </form>
+</div>
+
+
+

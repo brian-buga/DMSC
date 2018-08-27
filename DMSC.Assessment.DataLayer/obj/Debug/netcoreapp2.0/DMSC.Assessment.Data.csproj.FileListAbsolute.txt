@@ -1,0 +1,8 @@
+C:\Users\Bella\source\repos\Dmsc.Assessment\Dmsc.Assessment.DataLayer\obj\Debug\netcoreapp2.0\DMSC.Assessment.Data.csproj.CoreCompileInputs.cache
+C:\Users\Bella\source\repos\Dmsc.Assessment\Dmsc.Assessment.DataLayer\obj\Debug\netcoreapp2.0\DMSC.Assessment.Data.AssemblyInfoInputs.cache
+C:\Users\Bella\source\repos\Dmsc.Assessment\Dmsc.Assessment.DataLayer\obj\Debug\netcoreapp2.0\DMSC.Assessment.Data.AssemblyInfo.cs
+C:\Users\Bella\source\repos\Dmsc.Assessment\Dmsc.Assessment.DataLayer\bin\Debug\netcoreapp2.0\DMSC.Assessment.Data.deps.json
+C:\Users\Bella\source\repos\Dmsc.Assessment\Dmsc.Assessment.DataLayer\bin\Debug\netcoreapp2.0\DMSC.Assessment.Data.dll
+C:\Users\Bella\source\repos\Dmsc.Assessment\Dmsc.Assessment.DataLayer\bin\Debug\netcoreapp2.0\DMSC.Assessment.Data.pdb
+C:\Users\Bella\source\repos\Dmsc.Assessment\Dmsc.Assessment.DataLayer\obj\Debug\netcoreapp2.0\DMSC.Assessment.Data.dll
+C:\Users\Bella\source\repos\Dmsc.Assessment\Dmsc.Assessment.DataLayer\obj\Debug\netcoreapp2.0\DMSC.Assessment.Data.pdb
