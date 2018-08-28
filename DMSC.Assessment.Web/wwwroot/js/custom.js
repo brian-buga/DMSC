@@ -9,14 +9,14 @@ jQuery(document).ready(function ($)
 
         var $articleId = $(this).attr("data-articleId");
        
-        var promise = $.post($("#deleteUrl").attr("data-deleteUrl"), { id: $articleId });
+        var ajaxPost = $.post($("#deleteUrl").attr("data-deleteUrl"), { id: $articleId });
 
-        promise.done(function (data)
+        ajaxPost.done(function (data)
         {           
             $("#" + $articleId).remove();             
         }); 
 
-        promise.fail(function (data) {
+        ajaxPost.fail(function (data) {
             console.log(data);
         }); 
     });

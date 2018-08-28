@@ -1,0 +1,56 @@
+﻿@model DMSC.Assessment.Backoffice.Models.ArticleModel
+<br />
+<div class="container-fluid mt-5">
+        
+    <div class="row">
+
+        <div class="col-md-8">           
+            <h1 class="mt-4">@Model.Title</h1>            
+            <p class="lead">by <a href="javascript:void(0)">@Model.Author</a></p>
+            <hr>        
+            <p>Posted on @Model.Published.ToShortDateString()</p>
+            <hr>        
+            <p class="lead">@Model.Content></p>
+            <hr>
+            <div>
+
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <a href="javascript:void(0)"><i class="fas fa-thumbs-up"></i> <span id="like" name="like">444</span></a>
+                }
+                else
+                {
+                    <a asp-controller="account" asp-action="login" asp-area=""><i class="fas fa-thumbs-up"></i> <span id="like" name="like">444</span></a>
+                }
+                
+            </div>
+            <hr>
+
+            <!-- Comments Form -->
+            <div class="card my-4">
+                <h5 class="card-header">Leave a Comment:</h5>
+                <div class="card-body">
+                    <form>
+                        <div class="form-group">
+                            <textarea class="form-control" rows="3"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-md-4">
+
+            <div class="card my-4 mt-4">
+                <h5 class="card-header">Latest News</h5>
+                <div class="card-body">
+
+                </div>
+            </div>                       
+
+        </div>
+    </div>
+</div>
+

@@ -4,6 +4,7 @@
     using DMSC.Assessment.Data.Model;
 
     using System;
+    using System.Linq;
     using System.Collections.Generic;
 
     public static class Map
@@ -61,9 +62,9 @@
                 };
 
                 _articleModel.Add(articleModel);
-            }           
+            }
 
-            return _articleModel;
+            return _articleModel.OrderByDescending(x => x.Likes).ToList();
         }
     }
 }

@@ -1,0 +1,37 @@
+﻿@using DMSC.Assessment.Web.Extensions;
+@model List<DMSC.Assessment.Backoffice.Models.ArticleModel>
+
+<div class="container-fluid">
+
+    <div class="row">
+        <ul class="breadcrumb">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Pictures</a></li>
+            <li><a href="#">Summer 15</a></li>
+            <li>Italy</li>
+        </ul>
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+
+            @foreach (var article in Model)
+            {
+                <div class="card flex-md-row mb-4 shadow-sm h-md-250">
+                    <div class="card-body d-flex flex-column align-items-start">
+                        <h3 class="mb-0">
+                            <a class="text-dark" href="@Url.Action("Detail","News", new { area ="", id= article.Id } )">@article.Title</a>
+                        </h3>
+                        <div class="mb-1 text-muted">@article.Published.ToShortDateString()</div>
+                        <p class="card-text mb-auto">@article.Content.ShortString(200)</p>
+                        <a href="@Url.Action("Detail","News", new { area ="", id= article.Id  } )">Continue reading</a>
+                    </div>
+                </div>
+            }
+
+        </div>
+
+    </div>
+</div>
+

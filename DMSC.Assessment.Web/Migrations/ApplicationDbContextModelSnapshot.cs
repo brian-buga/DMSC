@@ -58,9 +58,13 @@ namespace DMSC.Assessment.Web.Migrations
 
                     b.Property<string>("CreatedBy");
 
+                    b.Property<int>("UserId");
+
                     b.HasKey("Id");
 
                     b.HasIndex("ArticleId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Likes");
                 });
@@ -97,16 +101,21 @@ namespace DMSC.Assessment.Web.Migrations
             modelBuilder.Entity("DMSC.Assessment.Data.Model.Article", b =>
                 {
                     b.HasOne("DMSC.Assessment.Data.Model.User", "Author")
-                        .WithMany("Article")
+                        .WithMany("Articles")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("DMSC.Assessment.Data.Model.Like", b =>
                 {
-                    b.HasOne("DMSC.Assessment.Data.Model.Article", "Article")
-                        .WithMany("Like")
+                    b.HasOne("DMSC.Assessment.Data.Model.Article")
+                        .WithMany("Likes")
                         .HasForeignKey("ArticleId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("DMSC.Assessment.Data.Model.User")
+                        .WithMany("Likes")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618

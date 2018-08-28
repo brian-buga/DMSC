@@ -6,8 +6,9 @@
 
     using DMSC.Assessment.Web;
     using DMSC.Assessment.Web.Filter;
-    using DMSC.Assessment.Web.Infrastrusture;
-
+    using DMSC.Assessment.Web.Services;
+    using Microsoft.AspNetCore.Authentication.Cookies;
+    using Microsoft.AspNetCore.Http;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.DependencyInjection;
 
@@ -27,7 +28,7 @@
             return services;
         }       
 
-        public static IServiceCollection AddCustomizedMvc(this IServiceCollection services)
+        public static IServiceCollection AddCustomMvc(this IServiceCollection services)
         {
             services.AddMvc(options =>
             {
@@ -40,7 +41,25 @@
 
             return services;
         }
-      
+
+        public static IServiceCollection AddCustomAuthentication(this IServiceCollection services)
+        {
+            services.AddAuthentication(o =>
+            {
+                o.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                o.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                o.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+
+            }).AddCookie(CookieAuthenticationDefaults.AuthenticationScheme,
+                 options =>
+                 {
+                     options.LoginPath = new PathString("/account/login");
+                     options.LogoutPath = new PathString("/account/logout");
+                 });
+           
+            return services;
+        }
+
         public static IServiceCollection RegisterCustomServices(this IServiceCollection service)
         {
             service.AddTransient<IDatabaseInitializer, DatabaseInitializer>();
@@ -50,8 +69,7 @@
             service.AddTransient<IArticleRepository, ArticleRepository>();
             service.AddTransient<ILikeRepository, LikeRepository>();
             service.AddTransient<IChartRepository, ChartRepository>();
-
-            service.AddTransient<IRouteProvider, RouteProvider>();
+            service.AddTransient<IUserManager, UserManager>();
 
             return service;
         }

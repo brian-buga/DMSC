@@ -6,7 +6,6 @@
     using Microsoft.Extensions.DependencyInjection;
 
     using DMSC.Assessment.Extensions;
-    using DMSC.Assessment.Web.Infrastrusture;
     using Microsoft.Extensions.FileProviders;
     using System.IO;
 
@@ -23,8 +22,9 @@
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddCustomDbContext();         
-            services.AddCustomizedMvc();
+            services.AddCustomDbContext();
+            services.AddCustomAuthentication();
+            services.AddCustomMvc();
             services.RegisterCustomServices();
         }
 
@@ -37,13 +37,21 @@
                     Path.Combine(Directory.GetCurrentDirectory(), @"wwwroot"))
             });
 
+            app.UseAuthentication();
             app.AddDevMiddlewares();
 
             app.UseMvc(routeBuilder =>
             {
-                app.ApplicationServices.GetRequiredService<IRouteProvider>().RegisterRoutes(routeBuilder);
-            });
-           
+                routeBuilder.MapRoute(
+                  name: "areaRoute",
+                  template: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+
+                routeBuilder.MapRoute(
+                            name: "default",
+                            template: "{controller=Home}/{action=Index}/{id?}");
+
+            });       
+
         }
     }
 }

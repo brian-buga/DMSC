@@ -5,7 +5,7 @@
 
     using System;
 
-    [Area("Backoffice")]
+    [Area("backoffice")]
     public class HomeController : Controller
     {
         private readonly IChartRepository _chartRepository;
@@ -13,6 +13,7 @@
         {
             _chartRepository = chartRepository;
         }
+     
         public IActionResult Index()
         {
             var model = _chartRepository.Get(DateTime.Now);

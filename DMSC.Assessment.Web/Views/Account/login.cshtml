@@ -1,0 +1,16 @@
+﻿@model DMSC.Assessment.Web.Models.LoginModel
+
+<div class="container-fluid">
+    <div class="text-center form-wrapper">
+        <form class="form-signin" asp-controller="account" asp-action="login" method="post">
+            <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+            <label asp-for="UserName" class="sr-only">Email address</label>
+            <input asp-for="UserName" type="email" class="form-control" placeholder="Email address" required autofocus>
+            <span asp-validation-for="UserName" class="fa-pull-left text-danger"></span>
+            <label asp-for="Password" class="sr-only">Password</label>
+            <input asp-for="Password" type="password" class="form-control" placeholder="Password" required>
+            <span asp-validation-for="Password" class="fa-pull-left text-danger"></span>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        </form>
+    </div>
+</div>

@@ -1,17 +1,25 @@
 ﻿namespace DMSC.Assessment.Web.Controllers
 {
     using DMSC.Assessment.Data.Interface;
+    using DMSC.Assessment.Data.Model;
+    using DMSC.Assessment.Web.Infrastructure;
     using DMSC.Assessment.Web.Models;
+    using DMSC.Assessment.Web.Services;
 
+    using Microsoft.AspNetCore.Authentication;
+    using Microsoft.AspNetCore.Authentication.Cookies;
     using Microsoft.AspNetCore.Mvc;
+    using System.Threading.Tasks;
 
     public class AccountController : Controller
     {
         private readonly IUserRepository _userRepository;
+        private readonly IUserManager _userManager;
 
-        public AccountController(IUserRepository userRepository)
+        public AccountController(IUserRepository userRepository, IUserManager userManager)
         {
             _userRepository = userRepository;
+            _userManager = userManager;
         }
 
         public IActionResult Index()
@@ -33,22 +41,49 @@
                 return View(loginModel);
             }
 
-            var model = _userRepository.FindByAsync(x => x.Email == loginModel.UserName);
+            var user = _userRepository.FindByAsync(x => x.Email == loginModel.UserName);
 
-            if(model == null)
+            if(user == null)
             {
                 ModelState.AddModelError("UserName", "Username not found");
                 return View(loginModel);
             }
            
-            if (model.Password != loginModel.Password)
+            if (user.Password != loginModel.Password)
             {
                 ModelState.AddModelError("Password", "Password not found");
                 return View(loginModel);
             }
 
-            return RedirectToActionPermanent("index", "dashboard", new { area = "BackOffice", userName = loginModel.UserName });
+            AuthenticationUser(user);
+
+            switch (user.Role)
+            {
+                case Roles.ADMIN:
+                case Roles.PUBLISHER:
+                    return RedirectToAction("index", "home", new { area = "backoffice" });
+                 
+                case Roles.USER:
+                    return RedirectToAction("index", "home", new { area = "" });                   
+            }
+
+            return View(loginModel);
+        }
+       
+        public async Task<IActionResult> LogOut()
+        {
+            await AuthenticationHttpContextExtensions.SignOutAsync(HttpContext);
+
+            return RedirectToAction("index", "home", new { area = "" } );
         }
 
+        #region private function
+
+        private async void AuthenticationUser(User user)
+        {
+            await AuthenticationHttpContextExtensions.SignInAsync(HttpContext, CookieAuthenticationDefaults.AuthenticationScheme, _userManager.Principal(user));
+        }
+
+        #endregion
     }
 }

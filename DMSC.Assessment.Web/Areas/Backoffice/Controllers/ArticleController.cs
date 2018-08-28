@@ -7,14 +7,15 @@
     using Microsoft.AspNetCore.Mvc;
     using System.Threading.Tasks;
   
-    [Area("Backoffice")]
+    [Area("backoffice")]
     public class ArticleController : BaseController
     {      
         private readonly IArticleRepository _articleRepository;
         public ArticleController(IArticleRepository articleRepository, IUserRepository userRepository):base(userRepository)
         {
             _articleRepository = articleRepository;
-        }
+        }       
+   
         public async Task<IActionResult> Index()
         {
             var articles = await _articleRepository.GetAllAsync();        
@@ -22,14 +23,14 @@
             return View(Map.From(articles));
         }
 
-        [HttpGet]
+        [HttpGet]       
         public IActionResult Create()
         {
             return View(new ArticleModel() { IsSuccess = false });
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        [ValidateAntiForgeryToken]      
         public IActionResult Create(ArticleModel articleModel)
         {
             if(!ModelState.IsValid)
@@ -47,7 +48,7 @@
             return View(new ArticleModel() { IsSuccess = true });
         }
 
-        [HttpGet]
+        [HttpGet]      
         public async Task<IActionResult> Edit(int Id)
         {           
             var model = await _articleRepository.GetAsync(Id);
@@ -56,7 +57,7 @@
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        [ValidateAntiForgeryToken]    
         public IActionResult Edit(ArticleModel articleModel)
         {
             if (!ModelState.IsValid)
@@ -74,7 +75,7 @@
             return View(articleModel);
         }
 
-        [HttpPost]
+        [HttpPost]        
         public async Task<IActionResult> Delete(int Id)
         {
             var model = await _articleRepository.GetAsync(Id);

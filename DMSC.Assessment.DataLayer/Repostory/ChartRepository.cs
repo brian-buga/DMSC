@@ -21,7 +21,7 @@
                        where o.CreatedAt.Date == dateTime.Date
                        orderby o.CreatedAt
                        group o by o.ArticleId into likes                      
-                       select new { c = likes.Count(), y = likes.Key, title =likes.FirstOrDefault().Article.Title }).ToList();
+                       select new { c = likes.Count(), y = likes.Key, title ="" }).ToList();
 
             return new Chart { Title = obj.Select(x => x.title).ToArray(), Likes = obj.Select(x => x.c).ToArray() };
         }
