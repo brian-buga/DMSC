@@ -18,6 +18,7 @@
       "wwwroot/lib/jquery/dist/jquery-ui.js",
       "wwwroot/js/site.js",
       "wwwroot/js/custom.js",
+      "wwwroot/js/frontend.js",
       "wwwroot/lib/chart/chart-area-demo.js",
       "wwwroot/lib/bootstrap/dist/js/boostrap.bundle.js",
       "wwwroot/lib/jquery/dist/js/jquery-easing/jquery-easing.js",

@@ -2,32 +2,59 @@
 {
     using DMSC.Assessment.Data.Interface;
     using DMSC.Assessment.Data.Model;
-
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
-    using System;
 
-    public class LikeController : Controller
+    using System;
+    using System.Threading.Tasks;
+
+    [Authorize]
+    public class LikeController : BaseController
     {
         private readonly ILikeRepository _likeRepository;
-
+      
         public LikeController(ILikeRepository likeRepository)
         {
             _likeRepository = likeRepository;
         }
 
         [HttpPost]
-        public IActionResult Create(int articleId)
-        {           
-            var model = new Like()
+        public async Task<IActionResult> Create(int articleId)
+        {
+            var valid = await ValidateVote(articleId);
+
+            if(valid == 0)
             {
-                ArticleId = articleId,
-                CreatedAt = DateTime.UtcNow
-            };
+                var model = new Like()
+                {
+                    UserId = UserId,
+                    ArticleId = articleId,
 
-           _likeRepository.Create(model);
-           _likeRepository.SaveChanges();
+                    CreatedAt = DateTime.UtcNow,
+                    CreatedBy = UserName
+                };
 
-            return Ok();
+                _likeRepository.Create(model);
+                _likeRepository.SaveChanges();
+            }           
+                      
+            return Ok(await PrepareLike(articleId));
         }
+
+        #region private function
+
+        private async Task<int> PrepareLike(int articleId)
+        {
+            var model = await _likeRepository.FindByAsync(x => x.ArticleId == articleId);
+            return model.Count;
+        }
+
+        private async Task<int> ValidateVote(int articleId)
+        {
+            var model = await _likeRepository.FindByAsync(x => x.ArticleId == articleId && x.UserId == UserId);
+            return model.Count;
+        }
+
+        #endregion
     }
 }

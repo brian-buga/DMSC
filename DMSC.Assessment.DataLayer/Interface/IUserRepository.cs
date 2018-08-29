@@ -6,7 +6,7 @@
 
     public interface IUserRepository 
     {
-        User FindByAsync(Expression<Func<User, bool>> predicate);
+        User FindBy(Expression<Func<User, bool>> predicate);
         void Create(User entity);
         void SaveChanges();
     }

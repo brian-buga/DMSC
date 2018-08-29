@@ -41,7 +41,7 @@
                 return View(loginModel);
             }
 
-            var user = _userRepository.FindByAsync(x => x.Email == loginModel.UserName);
+            var user = _userRepository.FindBy(x => x.Email == loginModel.UserName);
 
             if(user == null)
             {

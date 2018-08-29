@@ -1,28 +1,28 @@
 ﻿@model DMSC.Assessment.Backoffice.Models.ArticleModel
 <br />
 <div class="container-fluid mt-5">
-        
+
     <div class="row">
 
-        <div class="col-md-8">           
-            <h1 class="mt-4">@Model.Title</h1>            
+        <div class="col-md-8">
+            <h1 class="mt-4">@Model.Title</h1>
             <p class="lead">by <a href="javascript:void(0)">@Model.Author</a></p>
-            <hr>        
+            <hr>
             <p>Posted on @Model.Published.ToShortDateString()</p>
-            <hr>        
+            <hr>
             <p class="lead">@Model.Content></p>
             <hr>
             <div>
 
                 @if (User.Identity.IsAuthenticated)
                 {
-                    <a href="javascript:void(0)"><i class="fas fa-thumbs-up"></i> <span id="like" name="like">444</span></a>
+                    <a href="javascript:void(0)" id="like" name="like" data-articleId="@Model.Id"><i class="fas fa-thumbs-up"></i> <span>@Model.Likes</span></a>
                 }
                 else
                 {
-                    <a asp-controller="account" asp-action="login" asp-area=""><i class="fas fa-thumbs-up"></i> <span id="like" name="like">444</span></a>
+                    <a asp-controller="account" asp-action="login" asp-area=""><i class="fas fa-thumbs-up"></i> <span>@Model.Likes</span></a>
                 }
-                
+
             </div>
             <hr>
 
@@ -48,9 +48,13 @@
                 <div class="card-body">
 
                 </div>
-            </div>                       
+            </div>
 
         </div>
     </div>
+</div>
+
+<div class="hide">
+    <span id="createUrl" name="createUrl" data-createUrl="@Url.Action("create","like")"></span>
 </div>
 

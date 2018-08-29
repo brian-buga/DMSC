@@ -101,19 +101,19 @@ namespace DMSC.Assessment.Web.Migrations
             modelBuilder.Entity("DMSC.Assessment.Data.Model.Article", b =>
                 {
                     b.HasOne("DMSC.Assessment.Data.Model.User", "Author")
-                        .WithMany("Articles")
+                        .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("DMSC.Assessment.Data.Model.Like", b =>
                 {
-                    b.HasOne("DMSC.Assessment.Data.Model.Article")
+                    b.HasOne("DMSC.Assessment.Data.Model.Article", "Article")
                         .WithMany("Likes")
                         .HasForeignKey("ArticleId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("DMSC.Assessment.Data.Model.User")
+                    b.HasOne("DMSC.Assessment.Data.Model.User", "User")
                         .WithMany("Likes")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);

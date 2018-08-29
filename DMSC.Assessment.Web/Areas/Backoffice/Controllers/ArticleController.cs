@@ -2,16 +2,20 @@
 {
     using DMSC.Assessment.Backoffice.Models;
     using DMSC.Assessment.Data.Interface;
+    using DMSC.Assessment.Data.Model;
+    using DMSC.Assessment.Web.Controllers;
     using DMSC.Assessment.Web.Mapper;
 
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
     using System.Threading.Tasks;
-  
+
+    [Authorize]
     [Area("backoffice")]
     public class ArticleController : BaseController
     {      
         private readonly IArticleRepository _articleRepository;
-        public ArticleController(IArticleRepository articleRepository, IUserRepository userRepository):base(userRepository)
+        public ArticleController(IArticleRepository articleRepository)
         {
             _articleRepository = articleRepository;
         }       
@@ -37,10 +41,8 @@
             {
                 return View(articleModel);
             }
-
-            var model = Map.From(articleModel, CurrentUser);
-
-            _articleRepository.Create(model);
+                     
+            _articleRepository.Create(PrepareArticleModel(articleModel));
             _articleRepository.SaveChanges();
 
             ModelState.Clear();
@@ -64,10 +66,8 @@
             {
                 return View(articleModel);
             }
-
-            var model = Map.From(articleModel, CurrentUser);
-
-            _articleRepository.Edit(model);
+           
+            _articleRepository.Edit(PrepareArticleModel(articleModel));
             _articleRepository.SaveChanges();
 
             articleModel.IsSuccess = true;
@@ -85,5 +85,15 @@
 
             return Ok();
         }
+
+        #region private function
+
+        private Article PrepareArticleModel(ArticleModel articleModel)
+        {
+            var model = Map.From(articleModel, UserId, UserName);
+
+            return model;
+        }
+        #endregion
     }
 }

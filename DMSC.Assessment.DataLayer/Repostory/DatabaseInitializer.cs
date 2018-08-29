@@ -52,27 +52,27 @@
             {
                 for (int i = 0; i < 4; i++)
                 {
-                    _likeRepository.Create(new Like { ArticleId = 15, CreatedAt = DateTime.UtcNow, CreatedBy = "user@user.com" });
+                    _likeRepository.Create(new Like { UserId = 5, ArticleId = 15, CreatedAt = DateTime.UtcNow, CreatedBy = "user@user.com" });
                 }
 
                 for (int i = 0; i < 3; i++)
                 {
-                    _likeRepository.Create(new Like { ArticleId = 16, CreatedAt = DateTime.UtcNow, CreatedBy = "user@user.com" });
+                    _likeRepository.Create(new Like { UserId = 5, ArticleId = 16, CreatedAt = DateTime.UtcNow, CreatedBy = "user@user.com" });
                 }
 
                 for (int i = 0; i < 10; i++)
                 {
-                    _likeRepository.Create(new Like { ArticleId = 17, CreatedAt = DateTime.UtcNow, CreatedBy = "user@user.com" });
+                    _likeRepository.Create(new Like { UserId = 5, ArticleId = 17, CreatedAt = DateTime.UtcNow, CreatedBy = "user@user.com" });
                 }
 
                 for (int i = 0; i < 8; i++)
                 {
-                    _likeRepository.Create(new Like { ArticleId = 18, CreatedAt = DateTime.UtcNow, CreatedBy = "user@user.com" });
+                    _likeRepository.Create(new Like { UserId = 5, ArticleId = 18, CreatedAt = DateTime.UtcNow, CreatedBy = "user@user.com" });
                 }
 
                 for (int i = 0; i < 5; i++)
                 {
-                    _likeRepository.Create(new Like { ArticleId = 1008, CreatedAt = DateTime.UtcNow, CreatedBy = "user@user.com" });
+                    _likeRepository.Create(new Like { UserId = 5, ArticleId = 1008, CreatedAt = DateTime.UtcNow, CreatedBy = "user@user.com" });
                 }
             }
 

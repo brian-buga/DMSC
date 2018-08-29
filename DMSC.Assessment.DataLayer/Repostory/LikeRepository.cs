@@ -3,7 +3,14 @@
     using DMSC.Assessment.Data.Interface;
     using DMSC.Assessment.Data.Model;
 
+    using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.ChangeTracking;
+
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Linq.Expressions;
+    using System.Threading.Tasks;
 
     public class LikeRepository : ILikeRepository
     {
@@ -18,7 +25,12 @@
         {
             EntityEntry dbEntityEntry = _context.Entry<Like>(entity);
             _context.Set<Like>().Add(entity);
-        }      
+        }
+
+        public async Task<IList<Like>> FindByAsync(Expression<Func<Like, bool>> predicate)
+        {
+            return await _context.Set<Like>().Where(predicate).ToListAsync();
+        }
 
         public void SaveChanges()
         {

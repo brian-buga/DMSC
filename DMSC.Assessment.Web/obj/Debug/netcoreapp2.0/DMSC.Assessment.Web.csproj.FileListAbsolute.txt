@@ -2,13 +2,13 @@ C:\Users\Bella\source\repos\Dmsc.Assessment\DMSC.Assessment.Web\bin\Debug\netcor
 C:\Users\Bella\source\repos\Dmsc.Assessment\DMSC.Assessment.Web\bin\Debug\netcoreapp2.0\DMSC.Assessment.Web.runtimeconfig.json
 C:\Users\Bella\source\repos\Dmsc.Assessment\DMSC.Assessment.Web\bin\Debug\netcoreapp2.0\DMSC.Assessment.Web.runtimeconfig.dev.json
 C:\Users\Bella\source\repos\Dmsc.Assessment\DMSC.Assessment.Web\bin\Debug\netcoreapp2.0\DMSC.Assessment.Web.dll
+C:\Users\Bella\source\repos\Dmsc.Assessment\DMSC.Assessment.Web\bin\Debug\netcoreapp2.0\DMSC.Assessment.Web.pdb
+C:\Users\Bella\source\repos\Dmsc.Assessment\DMSC.Assessment.Web\bin\Debug\netcoreapp2.0\DMSC.Assessment.Data.dll
+C:\Users\Bella\source\repos\Dmsc.Assessment\DMSC.Assessment.Web\bin\Debug\netcoreapp2.0\DMSC.Assessment.Data.pdb
 C:\Users\Bella\source\repos\Dmsc.Assessment\DMSC.Assessment.Web\obj\Debug\netcoreapp2.0\DMSC.Assessment.Web.csprojAssemblyReference.cache
 C:\Users\Bella\source\repos\Dmsc.Assessment\DMSC.Assessment.Web\obj\Debug\netcoreapp2.0\DMSC.Assessment.Web.csproj.CoreCompileInputs.cache
 C:\Users\Bella\source\repos\Dmsc.Assessment\DMSC.Assessment.Web\obj\Debug\netcoreapp2.0\DMSC.Assessment.Web.AssemblyInfoInputs.cache
 C:\Users\Bella\source\repos\Dmsc.Assessment\DMSC.Assessment.Web\obj\Debug\netcoreapp2.0\DMSC.Assessment.Web.AssemblyInfo.cs
 C:\Users\Bella\source\repos\Dmsc.Assessment\DMSC.Assessment.Web\obj\Debug\netcoreapp2.0\DMSC.Assessment.Web.csproj.CopyComplete
-C:\Users\Bella\source\repos\Dmsc.Assessment\DMSC.Assessment.Web\bin\Debug\netcoreapp2.0\DMSC.Assessment.Web.pdb
-C:\Users\Bella\source\repos\Dmsc.Assessment\DMSC.Assessment.Web\bin\Debug\netcoreapp2.0\DMSC.Assessment.Data.dll
-C:\Users\Bella\source\repos\Dmsc.Assessment\DMSC.Assessment.Web\bin\Debug\netcoreapp2.0\DMSC.Assessment.Data.pdb
 C:\Users\Bella\source\repos\Dmsc.Assessment\DMSC.Assessment.Web\obj\Debug\netcoreapp2.0\DMSC.Assessment.Web.dll
 C:\Users\Bella\source\repos\Dmsc.Assessment\DMSC.Assessment.Web\obj\Debug\netcoreapp2.0\DMSC.Assessment.Web.pdb

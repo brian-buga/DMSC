@@ -20,4 +20,21 @@ jQuery(document).ready(function ($)
             console.log(data);
         }); 
     });
+
+    $(document).on("click", "#like", function (e)
+    {
+        e.preventDefault();
+
+        alert($(this).attr("data-articleId"));
+       
+        var ajaxPost = $.post($("#createUrl").attr("data-createUrl"), { id: $(this).attr("data-articleId") });
+
+        ajaxPost.done(function (data) {
+            console.log(data);
+        });
+
+        ajaxPost.fail(function (data) {
+            console.log(data);
+        });
+    });
 });

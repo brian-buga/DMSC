@@ -24,7 +24,7 @@
             _context.Set<User>().Add(entity);
         }       
 
-        public User FindByAsync(Expression<Func<User, bool>> predicate)
+        public User FindBy(Expression<Func<User, bool>> predicate)
         {
             return _context.Set<User>().Where(predicate).FirstOrDefault();
         }

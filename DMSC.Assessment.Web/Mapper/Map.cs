@@ -9,7 +9,7 @@
 
     public static class Map
     {
-        public static Article From(ArticleModel articleModel, User user)
+        public static Article From(ArticleModel articleModel,int UserId, string userName)
         {
             var article = new Article()
             {
@@ -20,8 +20,8 @@
                 Active = articleModel.Active,
 
                 CreatedAt = DateTime.UtcNow,              
-                CreatedBy = user.Email,
-                UserId = user.Id
+                CreatedBy = userName,
+                UserId = UserId
             };
 
             return article;
