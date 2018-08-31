@@ -1,8 +1,9 @@
-﻿@model DMSC.Assessment.Web.Models.LoginModel
+﻿@model DMSC.Assessment.Web.Model.LoginModel
 
 <div class="container-fluid">
     <div class="text-center form-wrapper">
         <form class="form-signin" asp-controller="account" asp-action="login" method="post">
+            <input type="hidden" id="returnUrl" name="returnUrl" value="@Model.returnUrl" />
             <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
             <label asp-for="UserName" class="sr-only">Email address</label>
             <input asp-for="UserName" type="email" class="form-control" placeholder="Email address" required autofocus>

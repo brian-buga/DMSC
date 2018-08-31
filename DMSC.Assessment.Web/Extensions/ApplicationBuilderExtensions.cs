@@ -13,11 +13,7 @@
             if(env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-            }
-            else
-            {
-                app.UseExceptionHandler("/errorpage.htm");
-            }                      
+            }                              
            
             return app;
         }

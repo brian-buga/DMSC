@@ -18,7 +18,7 @@
         public Chart Get(DateTime dateTime)
         {
             var obj = (from o in _context.Likes
-                       where o.CreatedAt.Date == dateTime.Date
+                       where o.CreatedAt.Date >= dateTime.Date
                        orderby o.CreatedAt
                        group o by o.ArticleId into likes                      
                        select new { c = likes.Count(), y = likes.Key, title =likes.FirstOrDefault().Article.Title }).ToList();

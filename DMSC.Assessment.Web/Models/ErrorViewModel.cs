@@ -1,7 +1,6 @@
-using System;
-
-namespace DMSC.Assessment.Web.Models
+namespace DMSC.Assessment.Web.Model
 {
+    using System;
     public class ErrorViewModel
     {
         public string RequestId { get; set; }

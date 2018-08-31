@@ -4,6 +4,7 @@
     using DMSC.Assessment.Web.Mapper;
 
     using Microsoft.AspNetCore.Mvc;
+
     using System.Threading.Tasks;
       
     public class HomeController : Controller
@@ -20,16 +21,6 @@
             var articles = await _articleRepository.FindByAsync(x=>x.Active == true);
 
             return View(Map.From(articles));          
-        }
-
-        public IActionResult About()
-        {    
-            return View();
-        }
-
-        public IActionResult Contact()
-        {            
-            return View();
         }
     }
 }

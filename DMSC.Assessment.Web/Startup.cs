@@ -6,6 +6,7 @@
     using Microsoft.Extensions.DependencyInjection;
 
     using DMSC.Assessment.Extensions;
+
     using Microsoft.Extensions.FileProviders;
     using System.IO;
 
@@ -18,8 +19,7 @@
             HostingEnvironment = env;
             Configuration = configuration;
         }
-
-        // This method gets called by the runtime. Use this method to add services to the container.
+              
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddCustomDbContext();
@@ -27,8 +27,7 @@
             services.AddCustomMvc();
             services.RegisterCustomServices();
         }
-
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+       
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {            
             app.UseStaticFiles(new StaticFileOptions()

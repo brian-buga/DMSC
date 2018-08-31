@@ -5,7 +5,7 @@
     "outputFileName": "wwwroot/css/site.min.css",
     // An array of relative input file paths. Globbing patterns supported
     "inputFiles": [
-      "wwwroot/css/style.css",
+      "wwwroot/css/site.css",
       "wwwroot/lib/jquery/dist/jquery-ui.css",
       "wwwroot/lib/bootstrap/dist/css/boostrap.css",
       "wwwroot/lib/fontawesome-free/css/all.css"  
@@ -15,11 +15,10 @@
     "outputFileName": "wwwroot/js/site.min.js",
     "inputFiles": [
       "wwwroot/lib/jquery/dist/jquery.js",
-      "wwwroot/lib/jquery/dist/jquery-ui.js",
-      "wwwroot/js/site.js",
-      "wwwroot/js/custom.js",
+      "wwwroot/lib/jquery/dist/jquery-ui.js",    
+      "wwwroot/js/backend.js", 
       "wwwroot/js/frontend.js",
-      "wwwroot/lib/chart/chart-area-demo.js",
+      "wwwroot/js/chart-area.js",
       "wwwroot/lib/bootstrap/dist/js/boostrap.bundle.js",
       "wwwroot/lib/jquery/dist/js/jquery-easing/jquery-easing.js",
       "wwwroot/lib/chart/chart.js",

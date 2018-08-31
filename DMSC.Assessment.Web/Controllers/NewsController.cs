@@ -4,6 +4,7 @@
     using DMSC.Assessment.Web.Mapper;
 
     using Microsoft.AspNetCore.Mvc;
+
     using System.Threading.Tasks;
 
     public class NewsController : Controller

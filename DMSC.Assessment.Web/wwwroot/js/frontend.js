@@ -5,14 +5,14 @@ jQuery(document).ready(function ($) {
     {
         e.preventDefault();        
        
-        var ajaxPost = $.post($("#createUrl").attr("data-createUrl"), { articleId: $(this).attr("data-articleId") });
+        var _target = $.post($("#createUrl").attr("data-createUrl"), { articleId: $(this).attr("data-articleId") });
 
-        ajaxPost.done(function (data)
+        _target.done(function (data)
         {
             $("#like span").text(data);          
         });
 
-        ajaxPost.fail(function (data) {
+        _target.fail(function (data) {
             console.log(data);
         });
     });

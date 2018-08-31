@@ -1,4 +1,4 @@
-﻿@model DMSC.Assessment.Backoffice.Models.ArticleModel
+﻿@model DMSC.Assessment.Backend.Models.ArticleModel
 <br />
 <div class="container-fluid mt-5">
 
@@ -20,7 +20,7 @@
                 }
                 else
                 {
-                    <a asp-controller="account" asp-action="login" asp-area=""><i class="fas fa-thumbs-up"></i> <span>@Model.Likes</span></a>
+                    <a asp-controller="account" asp-action="login" asp-area="" asp-route-returnUrl="@this.ViewContext.HttpContext.Request.Path"><i class="fas fa-thumbs-up"></i> <span>@Model.Likes</span></a>
                 }
 
             </div>
@@ -32,9 +32,9 @@
                 <div class="card-body">
                     <form>
                         <div class="form-group">
-                            <textarea class="form-control" rows="3"></textarea>
+                            <textarea class="form-control" rows="3">To Do</textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" disabled="disabled" class="btn btn-primary">Submit</button>
                     </form>
                 </div>
             </div>

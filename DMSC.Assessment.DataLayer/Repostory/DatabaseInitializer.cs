@@ -10,40 +10,57 @@
     public class DatabaseInitializer : IDatabaseInitializer
     {
         private readonly ApplicationDbContext _context;     
-        private readonly IUserRepository _applicationUser;
+        private readonly IUserRepository _user;
         private readonly ILikeRepository _likeRepository;
 
-
         public DatabaseInitializer( ApplicationDbContext context, ILikeRepository likeRepository,
-         IUserRepository applicationUser)
+         IUserRepository user)
         {
             _likeRepository = likeRepository;
             _context = context;
-            _applicationUser = applicationUser;           
+            _user = user;           
         }
 
         public void Seed()
         {
             _context.Database.Migrate();
              CreateUsers();
-             CreateLikes();
+             //CreateLikes();
         }       
 
         private void CreateUsers()
         {
             if (!_context.Users.Any())
             {
-                var adminUser = new User { UserName = "admin@admin.com", FirstName = "Admin first", LastName = "Admin last", Email = "admin@admin.com", Role ="Admin", CreatedAt = DateTime.UtcNow, CreatedBy = "admin@admin.com", Mobile = "07535353535", Password ="123456"};
-                _applicationUser.Create(adminUser);               
+                var adminUser = new User { UserName = "admin@pressford.com", FirstName = "Admin first", LastName = "Admin last", Email = "admin@admin.com", Role ="Admin", CreatedAt = DateTime.UtcNow, CreatedBy = "admin@admin.com", Mobile = "07535353535", Password ="123456"};
+                _user.Create(adminUser);               
 
-                var publisherUser = new User { UserName = "user@user.com", FirstName = "Publisher First", LastName = "Publisher Last", Email = "user@user.com", Role = "publisher", CreatedAt = DateTime.UtcNow, CreatedBy = "admin@admin.com", Mobile = "07535353535", Password = "123456" };
-                _applicationUser.Create(publisherUser);
+                var publisherUser = new User { UserName = "publisher@pressford.com", FirstName = "Publisher First", LastName = "Publisher Last", Email = "publisher@pressford.com", Role = "Publisher", CreatedAt = DateTime.UtcNow, CreatedBy = "admin@admin.com", Mobile = "07535353535", Password = "123456" };
+                _user.Create(publisherUser);
 
-                var employerUser = new User { UserName = "employee@user.com", FirstName = "employee First", LastName = "employee Last", Email = "employee@user.com", Role = "employee", CreatedAt = DateTime.UtcNow, CreatedBy = "admin@admin.com", Mobile = "07535353535", Password = "123456" };
-                _applicationUser.Create(employerUser);
+                var publisherUser1 = new User { UserName = "publisher1@pressford.com", FirstName = "Publisher1 First", LastName = "Publisher1 Last", Email = "publisher1@pressford.com", Role = "Publisher", CreatedAt = DateTime.UtcNow, CreatedBy = "admin@admin.com", Mobile = "07535353535", Password = "123456" };
+                _user.Create(publisherUser);
+
+                var publisherUser2 = new User { UserName = "publisher2@pressford.com", FirstName = "Publisher2 First", LastName = "Publisher2 Last", Email = "publisher2@pressford.com", Role = "Publisher", CreatedAt = DateTime.UtcNow, CreatedBy = "admin@admin.com", Mobile = "07535353535", Password = "123456" };
+                _user.Create(publisherUser);
+
+                var employerUser = new User { UserName = "employee@pressford.com", FirstName = "Employee First", LastName = "Employee Last", Email = "employee@pressford.com", Role = "Employee", CreatedAt = DateTime.UtcNow, CreatedBy = "admin@admin.com", Mobile = "07535353535", Password = "123456" };
+                _user.Create(employerUser);
+
+                var employerUser1 = new User { UserName = "employee1@pressford.com", FirstName = "Employee1 First", LastName = "Employee1 Last", Email = "employee1@pressford.com", Role = "Employee", CreatedAt = DateTime.UtcNow, CreatedBy = "admin@admin.com", Mobile = "07535353535", Password = "123456" };
+                _user.Create(employerUser1);
+
+                var employerUser2 = new User { UserName = "employee2@pressford.com", FirstName = "Employee2 First", LastName = "Employee2 Last", Email = "employee2@pressford.com", Role = "Employee", CreatedAt = DateTime.UtcNow, CreatedBy = "admin@admin.com", Mobile = "07535353535", Password = "123456" };
+                _user.Create(employerUser2);
+
+                var employerUser3 = new User { UserName = "employe3e@pressford.com", FirstName = "Employee3 First", LastName = "Employee3 Last", Email = "employee3@pressford.com", Role = "Employee", CreatedAt = DateTime.UtcNow, CreatedBy = "admin@admin.com", Mobile = "07535353535", Password = "123456" };
+                _user.Create(employerUser3);
+
+                var employerUser4 = new User { UserName = "employee4@pressford.com", FirstName = "Employee4 First", LastName = "Employee4 Last", Email = "employee4@pressford.com", Role = "Employee", CreatedAt = DateTime.UtcNow, CreatedBy = "admin@admin.com", Mobile = "07535353535", Password = "123456" };
+                _user.Create(employerUser4);
             }
 
-            _applicationUser.SaveChanges();
+            _user.SaveChanges();
         }
         
         private void CreateLikes()

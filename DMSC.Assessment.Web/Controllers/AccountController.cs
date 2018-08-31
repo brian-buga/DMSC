@@ -3,12 +3,13 @@
     using DMSC.Assessment.Data.Interface;
     using DMSC.Assessment.Data.Model;
     using DMSC.Assessment.Web.Infrastructure;
-    using DMSC.Assessment.Web.Models;
+    using DMSC.Assessment.Web.Model;
     using DMSC.Assessment.Web.Services;
 
     using Microsoft.AspNetCore.Authentication;
     using Microsoft.AspNetCore.Authentication.Cookies;
     using Microsoft.AspNetCore.Mvc;
+
     using System.Threading.Tasks;
 
     public class AccountController : Controller
@@ -28,9 +29,9 @@
         }
 
         [HttpGet]
-        public IActionResult Login()
+        public IActionResult Login(string returnUrl)
         {
-            return View(new LoginModel());
+            return View(new LoginModel() { returnUrl = returnUrl } );
         }
 
         [HttpPost]
@@ -55,15 +56,21 @@
                 return View(loginModel);
             }
 
-            AuthenticationUser(user);
+            Authentication(user);          
 
             switch (user.Role)
             {
                 case Roles.ADMIN:
                 case Roles.PUBLISHER:
-                    return RedirectToAction("index", "home", new { area = "backoffice" });
+                    return RedirectToAction("index", "home", new { area = "backend" });
                  
                 case Roles.USER:
+
+                    if (!string.IsNullOrEmpty(loginModel.returnUrl))
+                    {
+                        return LocalRedirect(loginModel.returnUrl);
+                    }
+
                     return RedirectToAction("index", "home", new { area = "" });                   
             }
 
@@ -79,7 +86,7 @@
 
         #region private function
 
-        private async void AuthenticationUser(User user)
+        private async void Authentication(User user)
         {
             await AuthenticationHttpContextExtensions.SignInAsync(HttpContext, CookieAuthenticationDefaults.AuthenticationScheme, _userManager.Principal(user));
         }

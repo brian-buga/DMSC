@@ -1,7 +1,7 @@
 namespace DMSC.Assessment.Test
 {
-    using DMSC.Assessment.Backoffice.Controllers;
-    using DMSC.Assessment.Backoffice.Models;
+    using DMSC.Assessment.Backend.Controllers;
+    using DMSC.Assessment.Backend.Models;
     using DMSC.Assessment.Data.Interface;
     using DMSC.Assessment.Data.Model;
 
@@ -23,7 +23,7 @@ namespace DMSC.Assessment.Test
         }
 
         [Fact]
-        public async void IndexView_ShouldReturnsArticleModels()
+        public async void IndexView_ShouldReturnArticleModels()
         {           
             mockArticleRepos.Setup(x => x.GetAllAsync()).ReturnsAsync(new List<Article>());
 
@@ -68,7 +68,7 @@ namespace DMSC.Assessment.Test
         }
 
         [Fact]
-        public async void EditShouldReturnsArticleModel()
+        public async void EditShouldReturnArticleModel()
         {
             mockArticleRepos.Setup(x => x.GetAsync(It.IsAny<int>())).ReturnsAsync(new Article() { Author = new User { FirstName = "publisher", LastName = "publisher" }, Likes = new List<Like>(), Id = 15, UserId = 5, Active = false, Published = DateTime.Now, Content = "Test", Title = "Test" });
           
@@ -94,7 +94,7 @@ namespace DMSC.Assessment.Test
         }
 
         [Fact]
-        public async void Delete_ShouldReturns_Ok()
+        public async void Delete_ShouldReturn_Ok()
         {
             mockArticleRepos.Setup(x => x.Delete(It.IsAny<Article>()));
             mockArticleRepos.Setup(x => x.SaveChanges());

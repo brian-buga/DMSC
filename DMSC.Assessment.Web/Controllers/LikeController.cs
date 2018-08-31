@@ -2,13 +2,11 @@
 {
     using DMSC.Assessment.Data.Interface;
     using DMSC.Assessment.Data.Model;
-    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
 
     using System;
     using System.Threading.Tasks;
 
-    [Authorize]
     public class LikeController : BaseController
     {
         private readonly ILikeRepository _likeRepository;
